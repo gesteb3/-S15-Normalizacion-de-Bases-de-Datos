@@ -111,6 +111,4 @@ El modelo se transformó en un conjunto de tablas normalizadas que representan l
 Gracias a la normalización:
 - Se eliminaron duplicaciones y dependencias innecesarias.  
 - Se mejoró la integridad de los datos.  
-- Se facilita la actualización y mantenimiento del sistema.  
 
-La normalización permite una base de datos **más limpia, eficiente y coherente**.
