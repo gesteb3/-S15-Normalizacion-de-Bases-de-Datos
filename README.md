@@ -3,7 +3,7 @@
 
 ---
 
-## 📘 **Contexto**
+##  **Contexto**
 La universidad registra información sobre cursos, profesores y estudiantes en una sola tabla llamada `Registro_Cursos`.  
 El formato actual es el siguiente:
 
@@ -16,7 +16,7 @@ El formato actual es el siguiente:
 ##  **Primera forma normal (1NF)**
 
 
-### 📋 Estructura (1NF)
+###  Estructura (1NF)
 
 | ID_Registro | Curso | Profesor | Email_Profesor | Estudiante | Email_Estudiante | Créditos | Facultad |
 |--------------|--------|-----------|----------------|-------------|------------------|-----------|-----------|
@@ -57,13 +57,13 @@ Se separan los valores múltiples de estudiantes y correos en registros individu
 | 2 | Ana | ana@uni.edu |
 | 2 | Lucía | lucia@uni.edu |
 
-### 🔧 Aplicación:
+### Aplicación:
 Se eliminan las dependencias parciales separando las entidades `Profesor`, `Curso` y `Registro_Estudiante`.
 ---
 
 ##  **Tercera forma normal (3NF)**
 
-### 📋 Estructura (3NF)
+### Estructura (3NF)
 
 **Tabla: Facultad**
 | ID_Facultad | Nombre_Facultad |
