@@ -1,7 +1,5 @@
-# Normalización de la Tabla `Registro_Cursos`
+# Normalización de base de datos
 
-## 🎯 **Objetivo**
-Aplicar los principios de normalización de bases de datos relacionales hasta la Tercera Forma Normal (3NF), estructurando la información de manera que los datos sean consistentes, no redundantes y fáciles de mantener.
 
 ---
 
@@ -14,28 +12,9 @@ El formato actual es el siguiente:
 | 1 | Bases de Datos | Ana Torres | ana@uni.edu | Luis, María, Jorge | luis@uni.edu, maria@uni.edu, jorge@uni.edu | 4 | Ingeniería |
 | 2 | Programación Web | Carlos López | carlos@uni.edu | Pedro, Ana, Lucía | pedro@uni.edu, ana@uni.edu, lucia@uni.edu | 5 | Ingeniería |
 
----
 
-## 🔍 **Análisis Inicial (0NF)**
-En su estado actual, la tabla **no está normalizada (0NF)**.
+##  **Primera forma normal (1NF)**
 
-**Problemas identificados:**
-- Los campos `Estudiantes` y `Emails_Estudiantes` contienen **valores múltiples**.
-- Existe **redundancia de datos** (la facultad se repite).
-- Hay **dependencias múltiples** entre curso, profesor y estudiante.
-
-> La estructura no cumple con las condiciones de una base de datos bien estructurada.
-
----
-
-## 🧩 **Primera Forma Normal (1NF)**
-
-### 📖 Reglas:
-1. Cada campo debe contener **solo un valor atómico**.  
-2. Cada registro debe ser **único** e identificable por una clave primaria.
-
-### 🔧 Aplicación:
-Se separan los valores múltiples de estudiantes y correos en registros individuales.
 
 ### 📋 Estructura (1NF)
 
@@ -48,18 +27,13 @@ Se separan los valores múltiples de estudiantes y correos en registros individu
 | 2 | Programación Web | Carlos López | carlos@uni.edu | Ana | ana@uni.edu | 5 | Ingeniería |
 | 2 | Programación Web | Carlos López | carlos@uni.edu | Lucía | lucia@uni.edu | 5 | Ingeniería |
 
+### Aplicación:
+Se separan los valores múltiples de estudiantes y correos en registros individuales.
 ---
 
-## 🧱 **Segunda Forma Normal (2NF)**
+## **Segunda forma normal (2NF)**
 
-### 📖 Reglas:
-1. Debe estar en **1NF**.  
-2. Todos los atributos **no clave** deben depender **completamente** de la clave primaria.
-
-### 🔧 Aplicación:
-Se eliminan las dependencias parciales separando las entidades `Profesor`, `Curso` y `Registro_Estudiante`.
-
-### 📋 Estructura (2NF)
+### Estructura (2NF)
 
 **Tabla: Profesor**
 | ID_Profesor | Nombre_Profesor | Email_Profesor |
@@ -83,16 +57,11 @@ Se eliminan las dependencias parciales separando las entidades `Profesor`, `Curs
 | 2 | Ana | ana@uni.edu |
 | 2 | Lucía | lucia@uni.edu |
 
+### 🔧 Aplicación:
+Se eliminan las dependencias parciales separando las entidades `Profesor`, `Curso` y `Registro_Estudiante`.
 ---
 
-## 🧮 **Tercera Forma Normal (3NF)**
-
-### 📖 Reglas:
-1. Debe estar en **2NF**.  
-2. No deben existir **dependencias transitivas**.
-
-### 🔧 Aplicación:
-Se crea una tabla adicional `Facultad` para eliminar dependencias transitivas.
+##  **Tercera forma normal (3NF)**
 
 ### 📋 Estructura (3NF)
 
@@ -133,10 +102,12 @@ Se crea una tabla adicional `Facultad` para eliminar dependencias transitivas.
 | 2 | 5 |
 | 2 | 6 |
 
+### Aplicación:
+Se crea una tabla adicional `Facultad` para eliminar dependencias transitivas.
 ---
 
-## 🧾 **Conclusión**
-El modelo evolucionó desde una tabla única y redundante a un conjunto de tablas normalizadas que representan las entidades `Facultad`, `Profesor`, `Curso` y `Estudiante`.  
+## **Conclusión**
+El modelo se transformó en un conjunto de tablas normalizadas que representan las entidades `Facultad`, `Profesor`, `Curso` y `Estudiante`.  
 Gracias a la normalización:
 - Se eliminaron duplicaciones y dependencias innecesarias.  
 - Se mejoró la integridad de los datos.  
